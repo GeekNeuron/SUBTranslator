@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #28a745;
+    --primary-hover: #218838;
+    --secondary-color: #007bff;
+    --light-bg: #f8f9fa;
+    --white-bg: #ffffff;
+    --border-color: #dee2e6;
+    --text-color: #212529;
+    --text-muted: #6c757d;
+    --highlight-color: rgba(255, 229, 100, 0.5);
+    --font-family: 'Vazirmatn', sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px 10px;
+    font-size: 16px;
+    direction: ltr;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+header { text-align: center; margin-bottom: 30px; }
+h1 { color: var(--primary-color); }
+.card { background: var(--white-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow); padding: 25px; margin-bottom: 20px; }
+.hidden { display: none; }
+
+/* Header & Upload */
+.card-header { display: flex; justify-content: space-between; align-items: center; }
+.autosave-status { font-size: 0.9rem; color: var(--text-muted); font-weight: normal; }
+.controls { display: flex; align-items: center; gap: 15px; }
+input[type="file"] { display: none; }
+.custom-file-upload { display: inline-block; padding: 10px 20px; cursor: pointer; background-color: var(--primary-color); color: white; border-radius: 5px; transition: background-color 0.3s; }
+.custom-file-upload:hover { background-color: var(--primary-hover); }
+#file-name { color: var(--text-muted); }
+
+/* Find and Replace */
+.find-replace-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+}
+.find-replace-container input[type="text"] {
+    flex: 1 1 180px;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+.find-replace-buttons { display: flex; gap: 5px; }
+.find-replace-buttons button { padding: 8px 15px; border: 1px solid var(--border-color); background-color: var(--white-bg); border-radius: 5px; cursor: pointer; transition: background-color 0.2s; }
+.find-replace-buttons button:hover { background-color: #e9ecef; }
+.find-replace-status { width: 100%; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
+
+
+/* Translator Table */
+.translator-table-container { max-height: 60vh; overflow-y: auto; border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 20px; margin-top: 20px; }
+#subtitle-table { width: 100%; border-collapse: collapse; }
+#subtitle-table th, #subtitle-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
+#subtitle-table thead { position: sticky; top: 0; background-color: var(--light-bg); z-index: 1; }
+#subtitle-table th { font-weight: 600; }
+#subtitle-table td { vertical-align: top; }
+#subtitle-table .col-index { width: 5%; }
+#subtitle-table .col-time { width: 20%; font-family: monospace; }
+#subtitle-table .col-original { width: 37.5%; line-height: 1.6; }
+#subtitle-table .col-translation { width: 37.5%; position: relative; }
+#subtitle-table textarea { width: 100%; min-height: 60px; height: auto; padding: 8px 8px 25px 8px; border: 1px solid var(--border-color); border-radius: 5px; font-family: inherit; font-size: 1rem; box-sizing: border-box; resize: vertical; transition: box-shadow 0.2s; }
+#subtitle-table textarea:focus { border-color: var(--secondary-color); box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; }
+#subtitle-table textarea.highlighted {
+    box-shadow: 0 0 0 3px var(--highlight-color);
+}
+
+/* UX Features Styling */
+.translation-meta { position: absolute; bottom: 18px; left: 15px; right: 15px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); pointer-events: none; }
+.char-counter.limit-exceeded { color: #dc3545; font-weight: bold; }
+.copy-original-btn { background: none; border: none; cursor: pointer; padding: 0; color: var(--secondary-color); pointer-events: all; }
+.copy-original-btn:hover { text-decoration: underline; }
+
+#saveButton { display: block; width: 100%; padding: 12px 20px; background-color: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: background-color 0.3s; }
+#saveButton:hover { background-color: var(--primary-hover); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    #subtitle-table thead { display: none; }
+    #subtitle-table tr { display: block; margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 5px; }
+    #subtitle-table td { display: block; text-align: left; border-bottom: 1px dashed var(--border-color); padding-bottom: 35px; }
+    #subtitle-table td:last-child { border-bottom: none; }
+    #subtitle-table td::before { content: attr(data-label); font-weight: bold; float: left; margin-right: 10px; }
+}
