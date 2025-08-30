@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRT Subtitle Translator Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>SRT Subtitle Translator</h1>
+            <p>The final step: A complete tool with auto-save and find/replace functionality.</p>
+        </header>
+
+        <main>
+            <div class="card" id="upload-card">
+                <div class="controls">
+                    <input type="file" id="fileInput" accept=".srt">
+                    <label for="fileInput" class="custom-file-upload">Choose SRT File</label>
+                    <span id="file-name">No file selected</span>
+                </div>
+            </div>
+
+            <div class="card hidden" id="translator-card">
+                <div class="card-header">
+                    <h2>Translation Editor</h2>
+                    <span class="autosave-status" id="autosave-status"></span>
+                </div>
+
+                <div class="find-replace-container">
+                    <input type="text" id="find-input" placeholder="Find...">
+                    <input type="text" id="replace-input" placeholder="Replace with...">
+                    <div class="find-replace-buttons">
+                        <button id="find-next-btn">Find Next</button>
+                        <button id="replace-btn">Replace</button>
+                        <button id="replace-all-btn">Replace All</button>
+                    </div>
+                    <span id="find-replace-status" class="find-replace-status"></span>
+                </div>
+
+                <div class="translator-table-container">
+                    <table id="subtitle-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Timestamp</th>
+                                <th>Original Text</th>
+                                <th>Translated Text</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subtitle-body">
+                            </tbody>
+                    </table>
+                </div>
+                 <button id="saveButton">Save Translated File</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
