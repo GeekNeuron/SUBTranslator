@@ -6,7 +6,7 @@
     <title>SRT Subtitle Translator Tool</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <div class="container">
         <header>
             <h1>SRT Subtitle Translator</h1>
-            <p>The final step: A complete tool with auto-save and find/replace functionality.</p>
+            <p>A complete tool with translation, editing, and line management features.</p>
         </header>
 
         <main>
@@ -32,6 +32,11 @@
                     <span class="autosave-status" id="autosave-status"></span>
                 </div>
 
+                <div class="editor-actions">
+                    <button id="add-line-btn" title="Adds a new line before the first selected line">Add New Line</button>
+                    <button id="delete-lines-btn" title="Deletes all selected lines">Delete Selected</button>
+                </div>
+
                 <div class="find-replace-container">
                     <input type="text" id="find-input" placeholder="Find...">
                     <input type="text" id="replace-input" placeholder="Replace with...">
@@ -47,6 +52,7 @@
                     <table id="subtitle-table">
                         <thead>
                             <tr>
+                                <th><input type="checkbox" id="select-all-checkbox" title="Select/Deselect All"></th>
                                 <th>#</th>
                                 <th>Timestamp</th>
                                 <th>Original Text</th>
